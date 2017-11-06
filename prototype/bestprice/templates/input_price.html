@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+<!--
+{% block title %}
+    {% trans "Subscribe to the Obermatt Stock Update" %}
+{% endblock %}
+-->
+
+{% block container %}
+<h1 id="script_tile" xmlns="http://www.w3.org/1999/html">
+    <p class="no_margin">
+        Got a problem deciding your app's price ?
+    </p>
+    <p class="no_margin">
+        One click to know !
+    </p>
+</h1>
+
+<p  class="om-subscribe-page-text">
+    This tool gives you an advice about your app's price range, which is based on machine learning
+    models trained by over 26,000 top paid apps in Google Play.
+</p>
+
+<p  class="om-subscribe-page-text">
+    Type in your app's basic information below and click on <span style="font-weight: 600">'Get the Price of My App'</span> </br>
+    ( <span style="font-weight: 600">Note that</span> the more information you provide, the higher accuracy of our prediction result you get. )
+</p>
+
+<section class="om-subscribe-form">
+    <form action="/getprice/" method="post" class="">
+        {% csrf_token %}
+        <div class="">
+            <div class="form-field">
+                {{form.name}}
+            </div>
+            <span class="field-error">
+                {{ form.name.errors|striptags }}
+            </span>
+            <div class="form-field">
+                {{form.category}}
+            </div>
+            <span class="field-error">
+                {{ form.category.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field">
+                {{form.author}}
+            </div>
+            <span class="field-error">
+                {{ form.author.errors|striptags }}
+            </span>
+            <div class="form-field">
+                {{form.inAppPurchase}}
+            </div>
+            <span class="field-error">
+                {{ form.inAppPurchase.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field">
+                {{form.size}}
+            </div>
+            <span class="field-error">
+                {{ form.size.errors|striptags }}
+            </span>
+            <div class="form-field">
+                {{form.contentRating}}
+            </div>
+            <span class="field-error">
+                {{ form.contentRating.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field">
+                {{form.libraries}}
+            </div>
+            <span class="field-error">
+                {{ form.libraries.errors|striptags }}
+            </span>
+            <div class="form-field">
+                {{form.rank}}
+            </div>
+            <span class="field-error">
+                {{ form.rank.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field">
+                {{form.reviews}}
+            </div>
+            <span class="field-error">
+                {{ form.reviews.errors|striptags }}
+            </span>
+            <div class="form-field">
+                {{form.installs}}
+            </div>
+            <span class="field-error">
+                {{ form.installs.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field" style="width: 349px; margin-right: 63.234px">
+                {{form.age}}
+            </div>
+            <span class="field-error">
+                {{ form.age.errors|striptags }}
+            </span>
+            <div class="form-field" style="width: 180px; margin-bottom: 0px">
+                {{form.five_star_reviews}}
+            </div>
+            <span class="field-error">
+                {{ form.five_star_reviews.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field" style="width: 349px; margin-right: 63.234px">
+                {{form.lastUpdate}}
+            </div>
+            <span class="field-error">
+                {{ form.lastUpdate.errors|striptags }}
+            </span>
+            <div class="form-field" style="width: 180px; margin-bottom: 0px">
+                {{form.four_star_reviews}}
+            </div>
+            <span class="field-error">
+                {{ form.four_star_reviews.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+            <div class="form-field" style="width: 349px; margin-right: 63.234px">
+                {{form.androidVersion}}
+            </div>
+            <span class="field-error">
+                {{ form.androidVersion.errors|striptags }}
+            </span>
+            <div class="form-field" style="width: 180px; margin-bottom: 0px">
+                {{form.three_star_reviews}}
+            </div>
+            <span class="field-error">
+                {{ form.three_star_reviews.errors|striptags }}
+            </span>
+        </div>
+
+         <div class="">
+            <div class="form-field" style="width: 349px; margin-right: 63.234px">
+                {{form.starRating}}
+            </div>
+            <span class="field-error">
+                {{ form.starRating.errors|striptags }}
+            </span>
+             <div class="form-field" style="width: 180px; margin-bottom: 0px">
+                {{form.two_star_reviews}}
+            </div>
+            <span class="field-error">
+                {{ form.two_star_reviews.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="">
+
+        </div>
+        <div class="">
+            <div class="form-field" style="margin-left: 416.534px; width: 180px; margin-bottom: 0px">
+                {{form.one_star_reviews}}
+            </div>
+            <span class="field-error">
+                {{ form.one_star_reviews.errors|striptags }}
+            </span>
+        </div>
+
+        <div class="" style="margin-top: 7px">
+            <div class="form-field" style="width: 800px;">
+                {{form.description}}
+            </div>
+            <span class="field-error">
+                {{ form.description.errors|striptags }}
+            </span>
+        </div>
+        <p class="subscribe-button-above-text">Click here to get the advice for your app's price:</p>
+        <button type="submit" class="button-submit flat-button">Get the Price of My App</button>
+
+    </form>
+</section>
+
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt=""
+src="//www.googleadservices.com/pagead/conversion/967271096/?label=14nMCL_lgWwQuMWdzQM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+{% endblock container %}

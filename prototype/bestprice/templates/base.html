@@ -1,0 +1,60 @@
+{% load static %}
+{% load staticfiles %}
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="shortcut icon" href="{% static 'img/Android.ico' %}" />
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="https://www.obermatt.com/00/css/print.css" rel="stylesheet" type="text/css" media="print" />
+        <link href="https://www.obermatt.com/00/css/styles-relative-2016-02-19.css" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="https://www.obermatt.com/00/js/google.js"></script>
+        <script src="https://www.obermatt.com/00/js/app.js"></script>
+     	<link href='https://fonts.googleapis.com/css?family=Cormorant+Garamond|Roboto:300,400,700' rel='stylesheet' type='text/css'>
+        <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/uzh_shortcut_icon_57.png' %}" />
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/uzh_shortcut_icon_72.png' %}" />
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/uzh_shortcut_icon_114.png' %}" />
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/uzh_shortcut_icon_144.png' %}" />
+
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+
+        <title>
+            bestprice
+        </title>
+    </head>
+
+    <body>
+        <div class="mainWrapper">
+            <div class="mainWrapper">
+                <div class="nav-desktop">
+                    <div class="language_desktop">
+                        </br>
+                    </div>
+                    <div id="topnav">
+                        <div id="logo">
+                            <a href="http://www.ifi.uzh.ch/en.html"><img src="{% static 'img/uzh_logo.png' %}" width="300" height="66.4" alt="" /></a>
+                        </div>
+                        <div id="logo">
+                            <a href="http://www.ifi.uzh.ch/en/seal.html"><img src="{% static 'img/seal_logo.png' %}" width="170" height="58.2" alt="" /></a>
+                        </div>
+                    </div> <!--topnav-->
+                </div> <!--nav-desktop-->
+            </div>
+
+            <div class="content-container"><br>
+                {% block container %}
+                {% endblock %}
+            </div>
+
+            <div id="footer">
+                <p id="footer_left"> Only for education use | <a href="mailto:te.tan@uzh.ch">Contact</a></p>
+                <p id="footer_right">&copy; {% now "Y" %} University of Zurich. All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>
